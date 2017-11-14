@@ -1,0 +1,167 @@
+/* Stylesheet for Trivia Game (week 5 Homework) Game */
+
+
+/* IMport reset css first */
+
+@import "reset.css";
+
+
+
+/* ------General styles (post reset.CSS) & background image--- */
+
+
+body {
+	width: 100%;
+	
+	
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 18px;
+	color: #ccc;
+	
+	margin: 0;
+	padding:0;
+	
+	/* background-image: url("../images/background.jpg");
+	 background-size: cover;
+	 background-repeat: no-repeat;
+	 background-position: top left; */ 
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Georgia', Times, Times New Roman, serif;
+	font-weight: bold;
+}
+
+h1 { 
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h2 { 
+    font-size: 1.67em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h3 { 
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+p {
+	font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.clearfix{
+	content: “”;    
+	display: block;
+	clear: both;
+} 
+
+* {
+	box-sizing: border-box;
+}
+
+
+/* ------ Header--- */
+
+
+.container-fluid {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	height: 140px;
+	margin: 0 0 10px 0;
+	padding: 80px 20px 0 20px;
+
+	border: 1px solid #ddd;
+}
+
+.navbar-default {
+	background-color: #fff;
+	border: none;
+}
+
+nav {
+
+}
+
+nav li {
+	border-right: 1px solid #eee;
+}
+
+nav li:last-child { 
+	border: none; }
+
+
+
+
+
+
+/* ------ Main --- */
+
+.container {
+	max-width: 1250px;	
+	min-height: 560px;
+	align-content: center;
+}
+
+.main-area {
+	min-height: 560px;
+	padding: 20px 5px 20px 20px;
+	margin: 10px 0; 
+
+	border: 1px solid #ddd;
+}
+
+
+.timer {
+	width: 140px;
+	height: 95px;
+
+	border: 2px solid #ddd;
+
+	font-size: 40px;
+	padding: 30px 12px;
+
+
+}
+
+.question-group {
+	font-size: 2em;
+	color: #333;
+
+}
+
+
+
+.side-bar {
+	min-height: 260px;
+	padding: 20px;
+	margin: 10px 0;
+	border: 1px solid #ddd;
+	
+}
+
+
+
+
+
+
+
+
+footer {
+	height: 120px;
+	padding: 20px;
+	margin: 10px 0;
+
+	background-color: #ddd;
+}
+
