@@ -16,7 +16,7 @@ body {
 	
 	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
 	font-size: 18px;
-	color: #ccc;
+	color: #666;
 	
 	margin: 0;
 	padding:0;
@@ -80,41 +80,71 @@ header {
 	height: 140px;
 	margin: 0 0 10px 0;
 	padding: 80px 20px 0 20px;
+	
+	background-image: url("../images/milkyWayBanner.jpg");
+	background-size: 100% 150px;
+	background-repeat: no-repeat;
+	background-position: top left;
 
 	border: 1px solid #ddd;
 }
 
 .navbar-default {
-	background-color: #fff;
 	border: none;
 }
 
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+
+.astro-quiz {
+	font-size: 66px;
+	font-weight: bold;
+	color: #ddd !important;
+}
+
 nav li {
-	border-right: 1px solid #eee;
+	border-right: 1px solid #333;
+
+}
+
+nav li:first-child { 
+	border-right: 3px solid #333;
 }
 
 nav li:last-child { 
-	border: none; }
+	border: none; 
+}
 
-.quiz-select, .quiz-choice {
+
+.navbar-right {
 	font-size: 16px;
-	font-weight: : bold;
-	color: #fff !important;
-	background-color: #000;
+	color: #ddd !important;
+	background-color: #111;
+}
+
+.quiz-select, .quiz-choice, .quiz-choice a {
+	font-size: 16px;
+	color: #ddd !important;
+	background-color: #111;
 	z-index: 1;
 }
 
 .quiz-select:hover {
-	color: #fff !important;
-	background-color: #000 !important;
+	color: #ddd !important;
+	background-color: #111 !important;
 	z-index: 1;
 }
 
 .quiz-choice:hover {
-	color: #fff!important;
-	background-color: #333 !important;
+	color: #ddd !important;
+	background-color: #222 !important;
 	z-index: 1;
 }
+
+
 
 
 

@@ -255,7 +255,7 @@ var Quiz = {
 
 		Quiz.questionAdd (Quiz.index);
 
-		Quiz.timer = 10;
+		Quiz.timer = 11;
 		Quiz.timeDown ();
 	},
 
@@ -329,7 +329,7 @@ $('#submit').click(function() {
 
 /*Quiz.formListener ();*/
 
-Quiz.timer = 10;
+Quiz.timer = 11;
 Quiz.timeDown ();
 
 
