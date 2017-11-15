@@ -89,10 +89,6 @@ header {
 	border: none;
 }
 
-nav {
-
-}
-
 nav li {
 	border-right: 1px solid #eee;
 }
@@ -100,7 +96,25 @@ nav li {
 nav li:last-child { 
 	border: none; }
 
+.quiz-select, .quiz-choice {
+	font-size: 16px;
+	font-weight: : bold;
+	color: #fff !important;
+	background-color: #000;
+	z-index: 1;
+}
 
+.quiz-select:hover {
+	color: #fff !important;
+	background-color: #000 !important;
+	z-index: 1;
+}
+
+.quiz-choice:hover {
+	color: #fff!important;
+	background-color: #333 !important;
+	z-index: 1;
+}
 
 
 
@@ -125,6 +139,8 @@ nav li:last-child {
 .time-display {
 	width: 140px;
 	height: 95px;
+
+	margin: 0 auto;
 
 	border: 2px solid #ddd;
 
@@ -164,4 +180,6 @@ footer {
 
 	background-color: #ddd;
 }
+
+/* @media screen and (min-width: 640px) {}; */
 

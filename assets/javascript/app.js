@@ -34,13 +34,37 @@ function Question (num, group, stem, options, ans, expl, image) {
 	this.image = image;	
 }
 
-var questions = [];
-questions[0] = new Question( 1, 'The moon', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
-questions[1] = new Question( 2, 'Stars', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'moon.png');
-questions[2] = new Question( 3, 'Nebulae', 'What is ta nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'moon.png');
-questions[3] = new Question( 4, 'Galaxies', 'WWhat is rthe nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
-questions[4] = new Question( 5, 'Phenomena', 'What is the English translation of Pleides?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+var solarSystem = [];
+solarSystem[0] = new Question( 1, 'Solar System', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
+solarSystem[1] = new Question( 2, 'Solar System', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'moon.png');
+solarSystem[2] = new Question( 3, 'Solar System', 'What is a nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'moon.png');
+solarSystem[3] = new Question( 4, 'Solar System', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+solarSystem[4] = new Question( 5, 'Solar System', 'What is the English translation of Pleides?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
 
+var stars = [];
+stars[0] = new Question( 1, 'Stars', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
+stars[1] = new Question( 2, 'Stars', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'moon.png');
+stars[2] = new Question( 3, 'Stars', 'What is a nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'moon.png');
+stars[3] = new Question( 4, 'Stars', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+stars[4] = new Question( 5, 'Stars', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+
+
+var galaxies = [];
+galaxies[0] = new Question( 1, 'Galaxies', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
+galaxies[1] = new Question( 2, 'Galaxies', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'moon.png');
+galaxies[2] = new Question( 3, 'Galaxies', 'What is a nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'moon.png');
+galaxies[3] = new Question( 4, 'Galaxies', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+galaxies[4] = new Question( 5, 'Galaxies', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+
+
+var phenomena = [];
+phenomena[0] = new Question( 1, 'Phenomena', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
+phenomena[1] = new Question( 2, 'Phenomena', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'moon.png');
+phenomena[2] = new Question( 3, 'Phenomena', 'What is a nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'moon.png');
+phenomena[3] = new Question( 4, 'Phenomena', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+phenomena[4] = new Question( 5, 'Phenomena', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+
+var questions = [];
 
 var Quiz = {
 
@@ -221,6 +245,7 @@ var Quiz = {
 		qAnswer.empty();
 		qExplain.empty();
 		qTrack.empty();
+		qTrack.html('Question tracker<br /><br />');
 
 		Quiz.index = 0;
 		Quiz.score = 0;
@@ -247,28 +272,52 @@ var Quiz = {
 
 /* calls */
 
-Quiz.questionAdd (0);
+
+for (var i=0; i < solarSystem.length; i++) {
+	questions[i] = solarSystem[i];
+	}
 
 $('#solar-system').click(function() {
 
+	for (var i=0; i < solarSystem.length; i++) {
+		questions[i] = solarSystem[i];
+		}
+
+	Quiz.playAgain ();
 
 });
 
 $('#stars').click(function() {
 
+	for (var i=0; i < stars.length; i++) {
+		questions[i] = stars[i];
+	}
+
+	Quiz.playAgain ();
 
 });
 
 $('#galaxies').click(function() {
 
+	for (var i=0; i < galaxies.length; i++) {
+		questions[i] = galaxies[i];
+	}
 
+	Quiz.playAgain ();
 });
 
 $('#phenomena').click(function() {
 
+	for (var i=0; i < phenomena.length; i++) {
+		questions[i] = phenomena[i];
+	}
+
+	Quiz.playAgain ();
 
 });
 
+
+Quiz.questionAdd (0);
 
 $('#submit').click(function() {
 	var radioValue = $('input[name="radios"]:checked').val();
