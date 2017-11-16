@@ -71,6 +71,7 @@ var Quiz = {
 	index: 0,
 	score: 0,
 	correct: [],
+	answers: [],
 
 	timer: 0,
 	intervalId: 0,
@@ -91,19 +92,6 @@ var Quiz = {
 
 		$('input[name="radios"]').prop('checked', false);
 	},
-
-
-/*	formListener: function() {
-
-		$('#submit').click(function() {
-		var radioValue = $('input[name="radios"]:checked').val();
-
-		if (radioValue) {Quiz.answerHandler (radioValue);}
-		
-		});
-
-	},
-*/
 
 	timeDown: function() {
 
@@ -144,6 +132,7 @@ var Quiz = {
 			if (answer == questions[Quiz.index].ans) { 
 				Quiz.score++; 
 				Quiz.correct[Quiz.index] = 'correct';
+				Quiz.answers[Quiz.index] = questions[Quiz.index].options[answer-1];
 
 				optionIndex = questions[Quiz.index].ans - 1;
 				qAnswer.html('<span class="text-green">Correct!<br /><br />The answer is ' + questions[Quiz.index].options[optionIndex]) + '.</span>';
@@ -154,7 +143,8 @@ var Quiz = {
 
 				else {
 
-				Quiz.correct[Quiz.index] = 'incorrect answer'; 
+				Quiz.correct[Quiz.index] = 'incorrect';
+				Quiz.answers[Quiz.index] = questions[Quiz.index].options[answer-1]; 
 
 				optionIndex = questions[Quiz.index].ans - 1;
 				qAnswer.html('<span class="text-red">Incorrect!<br /><br />The correct answer is ' + questions[Quiz.index].options[optionIndex]) + '.</span>';
@@ -193,7 +183,7 @@ var Quiz = {
 
 			Quiz.questionAdd (Quiz.index);
 
-			Quiz.timer = 10;
+			Quiz.timer = 6;
 			Quiz.timeDown ();
 			}	
 
@@ -212,6 +202,8 @@ var Quiz = {
 
 		var optionIndex = 0;
 
+		Quiz.notTwice = false;
+
 		clearInterval(Quiz.intervalId);
 		Quiz.timerRunning = false;
 
@@ -220,8 +212,9 @@ var Quiz = {
 		qExplain.html('<span class="text-red">Explanation: &nbsp;' + questions[Quiz.index].expl) + '.</span>';
 
 		Quiz.correct[Quiz.index] = 'not answered';
+		Quiz.answers[Quiz.index] = 'no answer submitted';
 
-		Quiz.delay (5000);
+		Quiz.delay (3000);
 
 	},
 
@@ -234,7 +227,46 @@ var Quiz = {
 		qAnswer.text('Quiz over!'); 
 		qExplain.text('You scored ' + Quiz.score + ' out of ' + questions.length + ' correct.');
 
-		str='<br /><br /><button type="submit" id="play-again" class="btn btn-primary another-quit">Another quiz</button>';
+		str='<br /><br /><button type="submit" id="see-answers" class="btn btn-primary another-quit">See Answers</button>';
+		qExplain.append(str);
+
+		str='<button type="submit" id="play-again" class="btn btn-primary another-quit">Another quiz</button>';
+		qExplain.append(str);
+
+		str='<button type="submit" id="quit" class="btn btn-primary another-quit">Quit</button>';
+		qExplain.append(str);
+
+		$('#see-answers').click(function() { Quiz.seeAnswers (); });
+		$('#play-again').click(function() { Quiz.playAgain (); });
+		$('#quit').click(function() { Quiz.quit (); });
+
+	},
+
+	seeAnswers: function() {
+
+		var str = "";
+		var ansStr = "";
+
+		qAnswer.empty();
+		qExplain.empty();
+
+		qNumber.text(questions.length + ' questions in total.');
+
+		for (var i=0; i < questions.length; i++) {
+
+			if (Quiz.answers[i] == "no answer submitted") {ansStr = 'No answer submitted.<br />';}
+				else {ansStr = 'You answered ' + (Quiz.answers[i]) + '<br />';}
+
+			str = '<span class = "all-answers"><u><h4>Question ' + (i+1) + '.</h4></u>';
+			str = str + ansStr;
+			str = str + 'The correct answer is ' + questions[i].options[questions[i].ans-1] + '.<br />'; 
+			str = str + 'Explanation: ' + questions[i].expl + '.<br />';
+			str = str + '<hr /></span>';
+
+			qAnswer.append(str);
+		}
+
+		str='<button type="submit" id="play-again" class="btn btn-primary another-quit">Another quiz</button>';
 		qExplain.append(str);
 
 		str='<button type="submit" id="quit" class="btn btn-primary another-quit">Quit</button>';
@@ -243,6 +275,7 @@ var Quiz = {
 		$('#play-again').click(function() { Quiz.playAgain (); });
 		$('#quit').click(function() { Quiz.quit (); });
 
+		
 	},
 
 	playAgain: function() {
@@ -259,7 +292,7 @@ var Quiz = {
 
 		Quiz.questionAdd (Quiz.index);
 
-		Quiz.timer = 10;
+		Quiz.timer = 6;
 		Quiz.timeDown ();
 	},
 
@@ -333,7 +366,7 @@ $('#submit').click(function() {
 
 /*Quiz.formListener ();*/
 
-Quiz.timer = 10;
+Quiz.timer = 6;
 Quiz.timeDown ();
 
 
