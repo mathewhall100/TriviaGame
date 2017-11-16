@@ -35,11 +35,11 @@ function Question (num, group, stem, options, ans, expl, image) {
 }
 
 var solarSystem = [];
-solarSystem[0] = new Question( 1, 'Solar System', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
-solarSystem[1] = new Question( 2, 'Solar System', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'moon.png');
-solarSystem[2] = new Question( 3, 'Solar System', 'What is a nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'moon.png');
-solarSystem[3] = new Question( 4, 'Solar System', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
-solarSystem[4] = new Question( 5, 'Solar System', 'What is the English translation of Pleides?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'moon.png');
+solarSystem[0] = new Question( 1, 'Solar System', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'crator.jpg');
+solarSystem[1] = new Question( 2, 'Solar System', 'What is the name of the bigest star in the sky?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 3, 'Hercules crator is really big', 'crator.jpg');
+solarSystem[2] = new Question( 3, 'Solar System', 'What is a nebulae made of?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 2, 'Hercules crator is really big', 'crator.jpg');
+solarSystem[3] = new Question( 4, 'Solar System', 'What is the nearest galaxy to the milky way??', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'crator.jpg');
+solarSystem[4] = new Question( 5, 'Solar System', 'What is the English translation of Pleides?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 1, 'Hercules crator is really big', 'crator.jpg');
 
 var stars = [];
 stars[0] = new Question( 1, 'Stars', 'What is the name of the largest crator on the moon?', ['Hercules', 'heroditus', 'big crator', 'Apollo'], 4, 'Hercules crator is really big', 'moon.png');
@@ -179,13 +179,13 @@ var Quiz = {
 
 			if (Quiz.index == questions.length) { Quiz.quizOver (); }
 
-			else {
+				else {
 
-			Quiz.questionAdd (Quiz.index);
+				Quiz.questionAdd (Quiz.index);
 
-			Quiz.timer = 6;
-			Quiz.timeDown ();
-			}	
+				Quiz.timer = 6;
+				Quiz.timeDown ();
+				}	
 
 	},
 
@@ -254,16 +254,28 @@ var Quiz = {
 
 		for (var i=0; i < questions.length; i++) {
 
+
+
 			if (Quiz.answers[i] == "no answer submitted") {ansStr = 'No answer submitted.<br />';}
 				else {ansStr = 'You answered ' + (Quiz.answers[i]) + '<br />';}
 
-			str = '<span class = "all-answers"><u><h4>Question ' + (i+1) + '.</h4></u>';
+			str = '<span class = "all-answers"><u><h4>Question ' + (i+1) + '.</h4></u><br />';
 			str = str + ansStr;
 			str = str + 'The correct answer is ' + questions[i].options[questions[i].ans-1] + '.<br />'; 
-			str = str + 'Explanation: ' + questions[i].expl + '.<br />';
-			str = str + '<hr /></span>';
+			str = str + 'Explanation: ' + questions[i].expl + '.<br /></span>';
+
 
 			qAnswer.append(str);
+
+			str = '<img class="answer-images" src="assets/images/' + questions[i].image + '" height="120px">';
+			qAnswer.append(str);
+
+			str = '<span class="clearfix"><hr /></span>';
+			qAnswer.append(str);
+
+
+
+
 		}
 
 		str='<button type="submit" id="play-again" class="btn btn-primary another-quit">Another quiz</button>';
