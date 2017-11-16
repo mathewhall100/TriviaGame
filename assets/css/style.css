@@ -226,6 +226,7 @@ nav li:last-child {
 .answer-images {
 	float: right; 
 	padding: 10px 20px 10px 20px;
+	height: 150px;
 }
 
 
@@ -283,5 +284,6 @@ footer {
 @media screen and (max-width: 650px) {
 	.answer-images {
 	float: none;
+	padding: 20px 20px 10px 0;
 	}
 }

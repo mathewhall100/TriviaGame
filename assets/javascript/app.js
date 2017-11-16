@@ -297,7 +297,7 @@ var Quiz = {
 			str = str + questions[i].expl + '.<br /></div>';
 			qAnswer.append(str);
 
-			str = '<img class="answer-images" src="assets/images/' + questions[i].image + '" height="150px">';
+			str = '<img class="answer-images" src="assets/images/' + questions[i].image + '">';
 			qAnswer.append(str);
 
 			str = '<span class="clearfix"><hr /></span>';
