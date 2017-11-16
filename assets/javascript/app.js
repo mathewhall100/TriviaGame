@@ -14,7 +14,7 @@ var qOption3 = $('#option3');
 var qOption4 = $('#option4');
 
 var qAnswer = $('#question-answer');
-var qExplain = $('#question-explanation');
+var qExplain = $('#question-explain');
 
 var qTime = $('#time-display');
 
@@ -117,10 +117,15 @@ var Quiz = {
 
 	decrement: function() { 
 
-		Quiz.timer--;
-		qTime.text(Quiz.timer );
+		var str = "";
+		
+		str = Quiz.timer--;
 
-		if (Quiz.timer == 0) { Quiz.outOfTime ();}
+		if (Quiz.timer < 9) {str = "0" + str;}
+		str = str + ":00";
+		qTime.text(str);
+
+		if (Quiz.timer < 0) { Quiz.outOfTime ();}
 
 	},
 
@@ -141,8 +146,8 @@ var Quiz = {
 				Quiz.correct[Quiz.index] = 'correct';
 
 				optionIndex = questions[Quiz.index].ans - 1;
-				qAnswer.text('Correct! The answer is: ' + questions[Quiz.index].options[optionIndex]);
-				qExplain.text('Explanation.' + questions[Quiz.index].expl);
+				qAnswer.html('<span class="text-green">Correct!<br /><br />The answer is ' + questions[Quiz.index].options[optionIndex]) + '.</span>';
+				qExplain.html('<span class="text-green">Explanation: &nbsp;' + questions[Quiz.index].expl) + '.</span>';
 
 
 				}
@@ -152,11 +157,11 @@ var Quiz = {
 				Quiz.correct[Quiz.index] = 'incorrect answer'; 
 
 				optionIndex = questions[Quiz.index].ans - 1;
-				qAnswer.text('Wrong!. The correct answer is: ' + questions[Quiz.index].options[optionIndex]);
-				qExplain.text('Explanation.' + questions[Quiz.index].expl);
+				qAnswer.html('<span class="text-red">Incorrect!<br /><br />The correct answer is ' + questions[Quiz.index].options[optionIndex]) + '.</span>';
+				qExplain.html('<span class="text-red">Explanation: &nbsp;' + questions[Quiz.index].expl) + '.</span>';
 				}
 
-			Quiz.delay (5000);
+			Quiz.delay (3000);
 
 		}
 
@@ -188,7 +193,7 @@ var Quiz = {
 
 			Quiz.questionAdd (Quiz.index);
 
-			Quiz.timer = 11;
+			Quiz.timer = 10;
 			Quiz.timeDown ();
 			}	
 
@@ -211,8 +216,8 @@ var Quiz = {
 		Quiz.timerRunning = false;
 
 		optionIndex = questions[Quiz.index].ans - 1;
-		qAnswer.text('Timeout!. The correct answer is: ' + questions[Quiz.index].options[optionIndex]);
-		qExplain.text('Explanation.' + questions[Quiz.index].expl);
+		qAnswer.html('<span class="text-red">Timeout! <br /><br />The correct answer is ' + questions[Quiz.index].options[optionIndex]) + '.</span>';
+		qExplain.html('<span class="text-red">Explanation: &nbsp;' + questions[Quiz.index].expl) + '.</span>';
 
 		Quiz.correct[Quiz.index] = 'not answered';
 
@@ -227,12 +232,12 @@ var Quiz = {
 
 		qTime.text('00:00');
 		qAnswer.text('Quiz over!'); 
-		qExplain.text('You scored ' + Quiz.score + ' out of ' + questions.length + 'correct.');
+		qExplain.text('You scored ' + Quiz.score + ' out of ' + questions.length + ' correct.');
 
-		str='<br /><br /><button type="submit" id="play-again" class="btn btn-primary">Another quiz</button>';
+		str='<br /><br /><button type="submit" id="play-again" class="btn btn-primary another-quit">Another quiz</button>';
 		qExplain.append(str);
 
-		str='<button type="submit" id="quit" class="btn btn-primary">Quit</button>';
+		str='<button type="submit" id="quit" class="btn btn-primary another-quit">Quit</button>';
 		qExplain.append(str);
 
 		$('#play-again').click(function() { Quiz.playAgain (); });
@@ -245,7 +250,6 @@ var Quiz = {
 		qAnswer.empty();
 		qExplain.empty();
 		qTrack.empty();
-		qTrack.html('Question tracker<br /><br />');
 
 		Quiz.index = 0;
 		Quiz.score = 0;
@@ -255,7 +259,7 @@ var Quiz = {
 
 		Quiz.questionAdd (Quiz.index);
 
-		Quiz.timer = 11;
+		Quiz.timer = 10;
 		Quiz.timeDown ();
 	},
 
@@ -329,7 +333,7 @@ $('#submit').click(function() {
 
 /*Quiz.formListener ();*/
 
-Quiz.timer = 11;
+Quiz.timer = 10;
 Quiz.timeDown ();
 
 
