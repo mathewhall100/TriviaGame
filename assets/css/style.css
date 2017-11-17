@@ -9,10 +9,6 @@
 
 /* ------General styles (post reset.CSS) & background image--- */
 
-/* html, body {
-	height: 100%;
-	
-} */
 
 body {
 	width: 100%;
@@ -149,8 +145,8 @@ nav li:last-child {
 
 
 
+/* ------ Main Section-- */
 
-/* ------ Main --- */
 
 .container {
 	max-width: 1250px;	
@@ -179,11 +175,11 @@ nav li:last-child {
 	padding: 23px 12px;
 }
 
+/* ------ Form/input button styling--- */
 
 .form-check-label {
 	padding-bottom: 6px;
 }
-
 
 .form-check-label span {
 	padding-left: 10px;
@@ -198,6 +194,8 @@ nav li:last-child {
 	margin: 20px 20px 20px 0;
 	font-size: 16px;
 }
+
+/* ------ Displayedtext in html styling --- */
 
 .question-group {
 	font-size: 2em;
@@ -216,6 +214,8 @@ nav li:last-child {
 	color: red;
 }
 
+/* ------ float left and right for show answers html--- */
+
 .all-answers {
 	width: 70%;
 	font-size: 16px;
@@ -229,6 +229,8 @@ nav li:last-child {
 	height: 150px;
 }
 
+/* ------ Sidebar styling--- */
+
 
 .side-bar {
 	min-height: 260px;
@@ -236,6 +238,8 @@ nav li:last-child {
 	margin: 10px 0;
 	border: 1px solid #ddd;
 }
+
+/* ------ Footer-- */
 
 
 footer {
@@ -249,6 +253,8 @@ footer {
 
 	background-color: #ddd;
 }
+
+/* ------ Media query tweaks to bootstrap responsive page-- */
 
 @media screen and (max-width: 991px) {
 	
