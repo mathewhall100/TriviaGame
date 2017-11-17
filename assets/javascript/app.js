@@ -108,7 +108,7 @@ var Quiz = {
 
 	},
 
-	/*Question timer using setIterval*/
+	/*Question timer using setInterval*/
 
 
 	timeDown: function() {
@@ -208,10 +208,13 @@ var Quiz = {
 
 	nextQuestion: function() {
 
-			qTime.text('00:00');
+			/*Empty/reset placeholders*/
 
+			qTime.text('00:00');
 			qAnswer.empty();
 			qExplain.empty();
+
+			/*Reset flag to re-activate submit button*/
 
 			Quiz.notTwice = true;
 
@@ -255,6 +258,8 @@ var Quiz = {
 	outOfTime: function() {
 
 		var optionIndex = 0;
+
+		/*reset flag to inactivate submit button*/
 
 		Quiz.notTwice = false;
 
@@ -306,8 +311,7 @@ var Quiz = {
 
 		/*event listeners for 'show-answers', 'restart quiz' and 'quit' buttons*/
 
-		$('#see-answers').click(function() { 
-			Quiz.seeAnswers (); });
+		$('#see-answers').click(function() { Quiz.seeAnswers (); });
 
 		$('#play-again').click(function() { Quiz.playAgain (); });
 
@@ -336,6 +340,8 @@ var Quiz = {
 		$('input[name="radios"]').prop('disabled', true);
 		$('input[name="radios"]').prop('checked', false);
 
+		/*Empty placeholders*/
+
 		qAnswer.empty();
 		qExplain.empty();
 		qButton.empty();
@@ -346,10 +352,12 @@ var Quiz = {
 		qButton.html(str);
 		$('#hide').click(function() { Quiz.hideAnswers (); });
 
-		/*Create text for each answer and display each answer using for loop*/
+		/*loop through questions array */
 
 
 		for (var i=0; i < questions.length; i++) {
+
+  			/*Collate and display answers given from answers array, correct answer and explanation from questions array*/
 
 			if (Quiz.answers[i] == "no answer submitted") {ansStr = 'No answer submitted.<br />';}
 				else {ansStr = 'You answered ' + (Quiz.answers[i]) + '<br />';}
@@ -391,6 +399,8 @@ var Quiz = {
 	hideAnswers: function() {
 
 		var str = "";
+
+		/*Empty placeholders*/
 
 		qAnswer.empty();
 		qExplain.empty();
@@ -532,9 +542,9 @@ $('#phenomena').click(function() {
 
 $('input[name="radios"]').prop('disabled', true);
 
-/*Create go button and attach event handling*/
+/*Create go button and attach event listener*/
 
-qButton.append('<button type="submit" id="go" class="btn btn-primary another-quit">Go</button>');
+qButton.append('<button type="submit" id="go" class="btn btn-primary another-quit">Go</button>');  
 
 $('#go').click(function() {
 
