@@ -1,4 +1,4 @@
-# Astroquiz 
+# AstroQuiz 
 
 ## Trivia game for astronomy geeks!
 
@@ -17,7 +17,7 @@ Test your knowledge on astronomy and the skies with this fun and informative app
  Your score will be displayed at the end.
  Play on your phone - I'm fully responsive.
 
- Correct answers displayed with additional knowledge
+ Correct answers displayed with additional knowledge.
 
  <img src="img\app_image_2.PNG" width="400px">
 
